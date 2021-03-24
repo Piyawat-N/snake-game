@@ -1,0 +1,150 @@
+<html>
+
+<head>
+    <title>Snake</title>
+    <style>
+        canvas {
+            display: block;
+            margin: 0 auto;
+        }
+
+        body {
+            /* height: 100%; */
+            background-color: black;
+        }
+
+        .game {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+            padding: 15px;
+            background-color: #AA3939;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="game">
+        <canvas id="snake" width="500" height="500"></canvas>
+        <div id="MainMenu"
+            style="background-color: blue; width: 500; height: 500; position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%); text-align: center; ">
+            <div style=" position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%); width: 100%; ">
+                <div
+                    style=" font-size: 79; margin: 10px ;color:yellow; font-weight: bold; font-family: Arial, Helvetica, sans-serif;">
+                    SNAKE</div>
+                <button onclick="play()"
+                    style="width: 30%; height: 60; font-size: 36; margin: 10px ; border-radius: 50px; font-weight: bold;">
+                    Play</button><br><br><br><br>
+                <button onclick="colorr()"
+                    style="width: 40%; height: 50; font-size: 23; margin: 10px ; border-radius: 50px; font-weight: bold;">
+                    Change Color</button>
+
+            </div>
+        </div>
+
+        <div id="GameOver"
+            style=" background-color: blue; width: 500; height: 500; position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%); text-align: center; ">
+
+            <br><br><br><br><br>
+            <div
+                style=" font-size: 55; margin: 10px ;color:yellow; font-weight: bold; font-family: Arial, Helvetica, sans-serif; opacity: 1; ">
+                Game Over</div>
+            <div id="score"
+                style=" font-size: 32; margin: 10px ;color:yellow; font-weight: bold; font-family: Arial, Helvetica, sans-serif; opacity: 1; ">
+                Score : 999</div>
+            <br><br>
+            <button onclick="play()"
+                style="width: 30%; height: 50; font-size: 23; margin: 10px ; border-radius: 50px; font-weight: bold; opacity: 1; ">
+                Play Again</button>
+            <button onclick="MainMenu()"
+                style="width: 30%; height: 50; font-size: 23; margin: 10px ; border-radius: 50px; font-weight: bold; opacity: 1; ">
+                Main Menu</button>
+        </div>
+
+        <div id="HighScore"
+            style=" background-color: blue; width: 500; height: 500; position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%); text-align: center; ">
+
+            <br><br><br><br><br>
+            <div
+                style=" font-size: 55; margin: 10px ;color:yellow; font-weight: bold; font-family: Arial, Helvetica, sans-serif;  ">
+                HIGH SCORE</div>
+
+            <button onclick="MainMenu()"
+                style="width: 30%; height: 50; font-size: 23; margin: 10px ; border-radius: 50px; font-weight: bold;  ">
+                Main Menu</button>
+        </div>
+
+        <div id="colorr"
+            style=" background-color: blue; width: 500; height: 500; position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%); text-align: center; ">
+
+            <br><br><br><br><br>
+            <div
+                style=" font-size: 55; margin: 10px ;color:yellow; font-weight: bold; font-family: Arial, Helvetica, sans-serif;  ">
+                Change Color</div>
+            <center>
+                <table
+                    style="text-align: center;color: yellow;font-size: 25px; font-weight: bold; font-family: Arial, Helvetica, sans-serif;">
+                    <tr>
+                        <td> <input type="color" id="color1" style="width: 100px; height: 100px; margin: 20px;"></td>
+                        <td> <input type="color" id="color2" style="width: 100px; height: 100px; margin: 20px;"></td>
+                    </tr>
+                    <tr>
+                        <td>COLOR 1</td>
+                        <td>COLOR 2</td>
+                    </tr>
+                </table>
+            </center>
+
+
+            <br><button onclick="MainMenu()"
+                style="width: 30%; height: 50; font-size: 23; margin: 10px ; border-radius: 50px; font-weight: bold; opacity: 1; ">
+                OK</button>
+        </div>
+
+
+    </div>
+    <script>
+        score = 99;
+        document.getElementById("GameOver").style.display = "none";
+        document.getElementById("HighScore").style.display = "none";
+        document.getElementById("colorr").style.display = "none";
+        function play() {
+            document.getElementById("MainMenu").style.display = "none";
+            document.getElementById("GameOver").style.display = "none";
+            startGame();
+            document.getElementById("snake").style.display = "block";
+        }
+        function GameOver(x) {
+            // name = document.getElementById("nickname").value;
+            // score = x;
+            // window.location = "insert.php?name=" + name + "&score=" + score;
+            document.getElementById("GameOver").style.display = "block";
+        }
+        function MainMenu() {
+            document.getElementById("GameOver").style.display = "none";
+            document.getElementById("HighScore").style.display = "none";
+            document.getElementById("colorr").style.display = "none";
+            document.getElementById("MainMenu").style.display = "block";
+        }
+        function HighScore() {
+
+            document.getElementById("GameOver").style.display = "none";
+            document.getElementById("HighScore").style.display = "block";
+        }
+        function colorr() {
+
+            document.getElementById("GameOver").style.display = "none";
+            document.getElementById("HighScore").style.display = "none";
+            document.getElementById("colorr").style.display = "block";
+            document.getElementById("MainMenu").style.display = "none";
+
+        }
+    </script>
+    <script src="snake.js"></script>
+</body>
+
+
+</html>
